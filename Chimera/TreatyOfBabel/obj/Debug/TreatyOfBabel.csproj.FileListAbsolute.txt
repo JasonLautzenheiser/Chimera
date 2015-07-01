@@ -1,5 +1,0 @@
-C:\Projects\TreatyOfBabel\TreatyOfBabel.NET\TreatyOfBabel\bin\Debug\TreatyOfBabel.dll
-C:\Projects\TreatyOfBabel\TreatyOfBabel.NET\TreatyOfBabel\bin\Debug\TreatyOfBabel.pdb
-C:\Projects\TreatyOfBabel\TreatyOfBabel.NET\TreatyOfBabel\obj\Debug\TreatyOfBabel.csprojResolveAssemblyReference.cache
-C:\Projects\TreatyOfBabel\TreatyOfBabel.NET\TreatyOfBabel\obj\Debug\TreatyOfBabel.dll
-C:\Projects\TreatyOfBabel\TreatyOfBabel.NET\TreatyOfBabel\obj\Debug\TreatyOfBabel.pdb

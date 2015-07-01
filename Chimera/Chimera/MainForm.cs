@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace Chimera
 {
-  public partial class MainForm : Form
+  public partial class MainForm : MetroForm
   {
     FolderBrowserDialog dialog;
 
