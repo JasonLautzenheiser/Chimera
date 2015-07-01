@@ -1,0 +1,13 @@
+C:\Projects\Chimera\Chimera\Chimera\bin\Debug\Chimera.exe.config
+C:\Projects\Chimera\Chimera\Chimera\bin\Debug\Chimera.exe
+C:\Projects\Chimera\Chimera\Chimera\bin\Debug\Chimera.pdb
+C:\Projects\Chimera\Chimera\Chimera\obj\Debug\Chimera.csprojResolveAssemblyReference.cache
+C:\Projects\Chimera\Chimera\Chimera\obj\Debug\Chimera.MainForm.resources
+C:\Projects\Chimera\Chimera\Chimera\obj\Debug\Chimera.Properties.Resources.resources
+C:\Projects\Chimera\Chimera\Chimera\obj\Debug\Chimera.csproj.GenerateResource.Cache
+C:\Projects\Chimera\Chimera\Chimera\obj\Debug\Chimera.exe
+C:\Projects\Chimera\Chimera\Chimera\obj\Debug\Chimera.pdb
+C:\Projects\Chimera\Chimera\Chimera\bin\Debug\libs\babel.exe
+C:\Projects\Chimera\Chimera\Chimera\bin\Debug\libs\DarkCarnival.gblorb
+C:\Projects\Chimera\Chimera\Chimera\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\Chimera\Chimera\Chimera\bin\Debug\Newtonsoft.Json.xml
