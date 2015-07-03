@@ -1,67 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework.Forms;
-using TreatyOfBabel;
+using Chimera.domain;
 
 namespace Chimera
 {
-  public partial class MainForm : MetroForm
+  public partial class MainForm : Form
   {
-    FolderBrowserDialog dialog;
+    const string GAME_PATH = @"C:\Users\Lautz\Dropbox\Interactive Fiction\games\Emily Short";
+
+    private GameDisplays display;
 
     public MainForm()
     {
       InitializeComponent();
+      display = new GameDisplays {MainListing = lvGames};
+      Text = $"Chimera - v{Application.ProductVersion}";
     }
 
-    private void buttonItem1_Click(object sender, EventArgs e)
+    private void btnGetGames_Click(object sender, EventArgs e)
     {
-      string folder = @"C:\Users\Lautz\Dropbox\Interactive Fiction\games";
-      var files = Directory.GetFiles(folder, "*.*");
+      var scanner = new GameScanner();
+      var list = scanner.RetrieveGamesFromDirectory(GAME_PATH);
 
-      populateGrid(files);
+      display.ListingByGenre(list);
 
     }
 
-    private void populateGrid(string[] files)
+    private void lvGames_SelectedIndexChanged(object sender, EventArgs e)
     {
-      foreach (var file in files)
+      if (lvGames.SelectedItems.Count <= 0) return;
+
+      GameModel game = null;
+
+
+      var tag = lvGames.SelectedItems[0].Tag;
+      if (tag != null)
       {
-        string fileName = Path.GetFileName(file);
+        game = (GameModel) tag;
       }
-    }
+      pict.Image = game?.FullImage;
+      lblAuthor.Text = game?.Author;
+      lblDescription.Text = game?.Description;
+      lblHeadline.Text = game?.Headline;
+      lblTitle.Text = game?.Title;
 
-    private void metroLabel1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void txtPathBrowse_Click(object sender, EventArgs e)
-    {
-      txtPath.Text = @"C:\Users\Lautz\Dropbox\Interactive Fiction\games";
-    }
-
-    public List<GameModel> GetGames(string rootPath)
-    {
-      if (string.IsNullOrEmpty(rootPath) || !Directory.Exists(rootPath))
-      {
-        return null;
-      }
-
-      // Use the Treaty of Babel helper to understand the files...
-      var helper = new TreatyHelper();
-      var files = Directory.EnumerateFiles(rootPath, "*.*", SearchOption.AllDirectories);
-      return (from file in files where helper.IsTreatyFile(file) select new GameModel(file, rootPath)).ToList();
-    }
-
-    private void btnGo_Click(object sender, EventArgs e)
-    {
-      var list = GetGames(txtPath.Text);
-      metroGrid1.DataSource = list;
     }
   }
 }
