@@ -38,6 +38,11 @@
       this.lblAuthor = new System.Windows.Forms.Label();
       this.pnlDescription = new System.Windows.Forms.Panel();
       this.lblDescription = new System.Windows.Forms.Label();
+      this.label1 = new System.Windows.Forms.Label();
+      this.rGenre = new System.Windows.Forms.RadioButton();
+      this.rAuthor = new System.Windows.Forms.RadioButton();
+      this.rFormat = new System.Windows.Forms.RadioButton();
+      this.btnPlay = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pict)).BeginInit();
       this.pnlDescription.SuspendLayout();
       this.SuspendLayout();
@@ -59,9 +64,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.lvGames.FullRowSelect = true;
-      this.lvGames.Location = new System.Drawing.Point(0, 26);
+      this.lvGames.Location = new System.Drawing.Point(0, 52);
       this.lvGames.Name = "lvGames";
-      this.lvGames.Size = new System.Drawing.Size(709, 581);
+      this.lvGames.Size = new System.Drawing.Size(709, 555);
       this.lvGames.TabIndex = 2;
       this.lvGames.UseCompatibleStateImageBehavior = false;
       this.lvGames.View = System.Windows.Forms.View.Details;
@@ -143,11 +148,72 @@
       this.lblDescription.TabIndex = 0;
       this.lblDescription.Text = "label1";
       // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Location = new System.Drawing.Point(13, 30);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(54, 13);
+      this.label1.TabIndex = 10;
+      this.label1.Text = "Group By:";
+      // 
+      // rGenre
+      // 
+      this.rGenre.AutoSize = true;
+      this.rGenre.Location = new System.Drawing.Point(74, 29);
+      this.rGenre.Name = "rGenre";
+      this.rGenre.Size = new System.Drawing.Size(54, 17);
+      this.rGenre.TabIndex = 11;
+      this.rGenre.TabStop = true;
+      this.rGenre.Text = "Genre";
+      this.rGenre.UseVisualStyleBackColor = true;
+      this.rGenre.CheckedChanged += new System.EventHandler(this.rGenre_CheckedChanged);
+      // 
+      // rAuthor
+      // 
+      this.rAuthor.AutoSize = true;
+      this.rAuthor.Location = new System.Drawing.Point(146, 28);
+      this.rAuthor.Name = "rAuthor";
+      this.rAuthor.Size = new System.Drawing.Size(56, 17);
+      this.rAuthor.TabIndex = 12;
+      this.rAuthor.TabStop = true;
+      this.rAuthor.Text = "Author";
+      this.rAuthor.UseVisualStyleBackColor = true;
+      this.rAuthor.CheckedChanged += new System.EventHandler(this.rAuthor_CheckedChanged);
+      // 
+      // rFormat
+      // 
+      this.rFormat.AutoSize = true;
+      this.rFormat.Location = new System.Drawing.Point(208, 28);
+      this.rFormat.Name = "rFormat";
+      this.rFormat.Size = new System.Drawing.Size(57, 17);
+      this.rFormat.TabIndex = 13;
+      this.rFormat.TabStop = true;
+      this.rFormat.Text = "Format";
+      this.rFormat.UseVisualStyleBackColor = true;
+      this.rFormat.CheckedChanged += new System.EventHandler(this.rFormat_CheckedChanged);
+      // 
+      // btnPlay
+      // 
+      this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnPlay.Location = new System.Drawing.Point(796, 581);
+      this.btnPlay.Name = "btnPlay";
+      this.btnPlay.Size = new System.Drawing.Size(75, 23);
+      this.btnPlay.TabIndex = 14;
+      this.btnPlay.Text = "Play";
+      this.btnPlay.UseVisualStyleBackColor = true;
+      this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+      // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1038, 629);
+      this.Controls.Add(this.btnPlay);
+      this.Controls.Add(this.rFormat);
+      this.Controls.Add(this.rAuthor);
+      this.Controls.Add(this.rGenre);
+      this.Controls.Add(this.label1);
       this.Controls.Add(this.pnlDescription);
       this.Controls.Add(this.lblAuthor);
       this.Controls.Add(this.lblHeadline);
@@ -179,6 +245,11 @@
     private System.Windows.Forms.Label lblAuthor;
     private System.Windows.Forms.Panel pnlDescription;
     private System.Windows.Forms.Label lblDescription;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.RadioButton rGenre;
+    private System.Windows.Forms.RadioButton rAuthor;
+    private System.Windows.Forms.RadioButton rFormat;
+    private System.Windows.Forms.Button btnPlay;
   }
 }
 

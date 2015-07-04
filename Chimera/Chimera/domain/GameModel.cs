@@ -1,18 +1,26 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using NPoco;
 using TreatyOfBabel;
 
 namespace Chimera.domain
 {
+  [TableName("games")]
+  [PrimaryKey("rowid")]
   public class GameModel
   {
     private readonly FileInfo file;
     private Image fullImage;
     private Image thumbImage;
+
+    public GameModel()
+    {
+    }
 
     public GameModel(string filename, string rootPath)
     {
@@ -26,7 +34,8 @@ namespace Chimera.domain
       extractMetadata();
     }
 
-    public string FullPath { get; }
+    public int Rowid { get; set; }
+    public string FullPath { get; set; }
     public string RelativePath { get; private set; }
     //// Game metadata fields
 
@@ -41,6 +50,7 @@ namespace Chimera.domain
     public string Headline { get; private set; }
     public string FirstPublished { get; private set; }
     public string Genre { get; private set; }
+    [Ignore]
     public string Group { get; private set; }
     public string Description { get; private set; }
     public string Series { get; private set; }
@@ -52,8 +62,10 @@ namespace Chimera.domain
     public string Url { get; private set; }
     public string AuthorEmail { get; private set; }
     // cover image
+    [Ignore]
     public MemoryStream CoverImageStream { get; private set; }
 
+    [Ignore]
     public Image FullImage
     {
       get
@@ -65,8 +77,10 @@ namespace Chimera.domain
 
         return fullImage;
       }
+      set { FullImage = null; }
     }
 
+    [Ignore]
     public Image ThumbImage
     {
       get
@@ -78,6 +92,7 @@ namespace Chimera.domain
 
         return thumbImage;
       }
+      set { thumbImage = null; }
     }
 
     private void extractMetadata()
@@ -192,6 +207,11 @@ namespace Chimera.domain
     {
       var el = node.XPathSelectElement(xpath, xmlns);
       return !string.IsNullOrWhiteSpace(el?.Value) ? el.Value : defaultValue;
+    }
+
+    public void Play()
+    {
+      Process.Start(FullPath);
     }
   }
 }
