@@ -32,7 +32,6 @@ namespace Chimera.domain
           MainListing.Groups.Add(new ListViewGroup(genre, genre));
           foreach (var game in games)
           {
-            if (save) repo.SaveGame(game);
             var item = new ListViewItem(new string[] {game.Title, game.Author, game.Format, game.FirstPublished, game.Description}, MainListing.Groups[genre]);
             item.Tag = game;
             if (game.ThumbImage != null)

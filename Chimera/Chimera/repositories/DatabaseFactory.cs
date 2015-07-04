@@ -6,6 +6,16 @@ namespace Chimera.repositories
 {
   public static class DatabaseFactory
   {
+    public static NPoco.DatabaseFactory InitializeFactory(string file)
+    {
+      return NPoco.DatabaseFactory.Config(x =>
+      {
+        x.WithMapper(new ImageMapper());
+        x.UsingDatabase(() => new Database($"Data Source = {file}; Version = 3; ", DatabaseType.SQLite));
+      });
+    }
+
+
     public static void CreateDatabase(string pDatabaseFile)
     {
       if (!DatabaseFileExists(pDatabaseFile))
@@ -17,10 +27,11 @@ namespace Chimera.repositories
 
     private static void setupTables(string file)
     {
-      var db = new Database($"Data Source = {file}; Version = 3; ", DatabaseType.SQLite);
-      setupVersionTable(db);
-
-      setupGameTable(db);
+      using (var db = InitializeFactory(file).GetDatabase())
+      {
+        setupVersionTable(db);
+        setupGameTable(db);
+      }
     }
 
     private static void setupVersionTable(Database db)

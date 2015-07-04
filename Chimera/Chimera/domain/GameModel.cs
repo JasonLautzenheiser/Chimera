@@ -65,7 +65,6 @@ namespace Chimera.domain
     [Ignore]
     public MemoryStream CoverImageStream { get; private set; }
 
-    [Ignore]
     public Image FullImage
     {
       get
@@ -77,10 +76,10 @@ namespace Chimera.domain
 
         return fullImage;
       }
-      set { FullImage = null; }
+      set { fullImage = value; }
     }
 
-    [Ignore]
+    [Column("thumbnail")]
     public Image ThumbImage
     {
       get
@@ -92,7 +91,7 @@ namespace Chimera.domain
 
         return thumbImage;
       }
-      set { thumbImage = null; }
+      set { thumbImage = value; }
     }
 
     private void extractMetadata()

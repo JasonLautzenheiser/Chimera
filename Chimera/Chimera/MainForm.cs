@@ -41,6 +41,9 @@ namespace Chimera
       gameList = scanner.RetrieveGamesFromDirectory(GAME_PATH);
 
       changeGrouping(currentGroup);
+
+      var repo = new GameRepo();
+      repo.SaveGames(gameList);
     }
 
     private void lvGames_SelectedIndexChanged(object sender, EventArgs e)
