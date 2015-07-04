@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Chimera.domain;
 using Chimera.repositories;
@@ -109,6 +110,12 @@ namespace Chimera
       }
 
       return game;
+    }
+    
+    private void pnlDescription_Paint(object sender, PaintEventArgs e)
+    {
+      lblDescription.MaximumSize = new Size(pnlDescription.Width - 30,0);
+      lblDescription.Refresh();
     }
   }
 

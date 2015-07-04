@@ -50,7 +50,7 @@
       // btnGetGames
       // 
       this.btnGetGames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnGetGames.Location = new System.Drawing.Point(715, 581);
+      this.btnGetGames.Location = new System.Drawing.Point(870, 581);
       this.btnGetGames.Name = "btnGetGames";
       this.btnGetGames.Size = new System.Drawing.Size(75, 23);
       this.btnGetGames.TabIndex = 1;
@@ -66,7 +66,7 @@
       this.lvGames.FullRowSelect = true;
       this.lvGames.Location = new System.Drawing.Point(0, 52);
       this.lvGames.Name = "lvGames";
-      this.lvGames.Size = new System.Drawing.Size(709, 555);
+      this.lvGames.Size = new System.Drawing.Size(1026, 259);
       this.lvGames.TabIndex = 2;
       this.lvGames.UseCompatibleStateImageBehavior = false;
       this.lvGames.View = System.Windows.Forms.View.Details;
@@ -74,8 +74,8 @@
       // 
       // pict
       // 
-      this.pict.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.pict.Location = new System.Drawing.Point(726, 27);
+      this.pict.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.pict.Location = new System.Drawing.Point(0, 317);
       this.pict.Name = "pict";
       this.pict.Size = new System.Drawing.Size(300, 300);
       this.pict.TabIndex = 3;
@@ -99,50 +99,55 @@
       // 
       // lblTitle
       // 
-      this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.lblTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-      this.lblTitle.Location = new System.Drawing.Point(726, 334);
+      this.lblTitle.Location = new System.Drawing.Point(306, 317);
       this.lblTitle.Name = "lblTitle";
-      this.lblTitle.Size = new System.Drawing.Size(300, 23);
+      this.lblTitle.Size = new System.Drawing.Size(720, 23);
       this.lblTitle.TabIndex = 6;
       // 
       // lblHeadline
       // 
-      this.lblHeadline.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblHeadline.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.lblHeadline.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblHeadline.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-      this.lblHeadline.Location = new System.Drawing.Point(726, 357);
+      this.lblHeadline.Location = new System.Drawing.Point(306, 340);
       this.lblHeadline.Name = "lblHeadline";
-      this.lblHeadline.Size = new System.Drawing.Size(300, 23);
+      this.lblHeadline.Size = new System.Drawing.Size(720, 23);
       this.lblHeadline.TabIndex = 7;
       // 
       // lblAuthor
       // 
-      this.lblAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.lblAuthor.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblAuthor.ForeColor = System.Drawing.Color.Black;
-      this.lblAuthor.Location = new System.Drawing.Point(726, 380);
+      this.lblAuthor.Location = new System.Drawing.Point(306, 363);
       this.lblAuthor.Name = "lblAuthor";
-      this.lblAuthor.Size = new System.Drawing.Size(300, 23);
+      this.lblAuthor.Size = new System.Drawing.Size(720, 23);
       this.lblAuthor.TabIndex = 8;
       // 
       // pnlDescription
       // 
-      this.pnlDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlDescription.AutoScroll = true;
       this.pnlDescription.Controls.Add(this.lblDescription);
-      this.pnlDescription.Location = new System.Drawing.Point(726, 407);
+      this.pnlDescription.Location = new System.Drawing.Point(310, 411);
       this.pnlDescription.Name = "pnlDescription";
-      this.pnlDescription.Size = new System.Drawing.Size(297, 138);
+      this.pnlDescription.Size = new System.Drawing.Size(716, 138);
       this.pnlDescription.TabIndex = 9;
+      this.pnlDescription.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDescription_Paint);
       // 
       // lblDescription
       // 
       this.lblDescription.AutoSize = true;
       this.lblDescription.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblDescription.Location = new System.Drawing.Point(4, 4);
-      this.lblDescription.MaximumSize = new System.Drawing.Size(250, 1000);
+      this.lblDescription.MaximumSize = new System.Drawing.Size(1000, 0);
       this.lblDescription.Name = "lblDescription";
       this.lblDescription.Size = new System.Drawing.Size(41, 15);
       this.lblDescription.TabIndex = 0;
@@ -196,7 +201,7 @@
       // btnPlay
       // 
       this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnPlay.Location = new System.Drawing.Point(796, 581);
+      this.btnPlay.Location = new System.Drawing.Point(951, 581);
       this.btnPlay.Name = "btnPlay";
       this.btnPlay.Size = new System.Drawing.Size(75, 23);
       this.btnPlay.TabIndex = 14;
