@@ -14,9 +14,8 @@ namespace Chimera.domain
   [PrimaryKey("rowid")]
   public class GameModel
   {
-    private readonly FileInfo file;
-    private Image fullImage;
-    private Image thumbImage;
+    private Bitmap fullImage;
+    private Bitmap thumbImage;
 
     public GameModel()
     {
@@ -24,12 +23,23 @@ namespace Chimera.domain
 
     public GameModel(string filename, string rootPath)
     {
-      file = new FileInfo(filename);
+      var file = new FileInfo(filename);
 
-      Title = Path.GetFileNameWithoutExtension(file.Name); // "An Interactive Fiction"?
+      Title = Path.GetFileNameWithoutExtension(file.Name); 
       Author = "Anonymous";
       FullPath = filename;
       RelativePath = filename.Substring(rootPath.Length + 1);
+
+      extractMetadata();
+    }
+
+    public GameModel(string filename)
+    {
+      var file = new FileInfo(filename);
+      Title = Path.GetFileNameWithoutExtension(file.Name);
+      Author = "Anonymous";
+      FullPath = filename;
+      RelativePath = filename;
 
       extractMetadata();
     }
@@ -65,13 +75,14 @@ namespace Chimera.domain
     [Ignore]
     public MemoryStream CoverImageStream { get; private set; }
 
-    public Image FullImage
+    [Column("fullimage")]
+    public Bitmap FullImage
     {
       get
       {
         if (fullImage == null && CoverImageStream != null)
         {
-          fullImage = ImageFromStream(CoverImageStream, 300, 300);
+          fullImage = (Bitmap) ImageFromStream(CoverImageStream, 300, 300);
         }
 
         return fullImage;
@@ -80,13 +91,13 @@ namespace Chimera.domain
     }
 
     [Column("thumbnail")]
-    public Image ThumbImage
+    public Bitmap ThumbImage
     {
       get
       {
         if (thumbImage == null && CoverImageStream != null)
         {
-          thumbImage = ImageFromStream(CoverImageStream, 100, 100);
+          thumbImage = (Bitmap) ImageFromStream(CoverImageStream, 100, 100);
         }
 
         return thumbImage;

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Chimera.domain;
 using Chimera.repositories;
+using TreatyOfBabel;
 
 namespace Chimera
 {
@@ -19,10 +22,13 @@ namespace Chimera
     public MainForm()
     {
       InitializeComponent();
+
+      Session.LoadOptions();
+
       display = new GameDisplays {MainListing = lvGames};
       Text = $"Chimera - v{Application.ProductVersion}";
 
-      Session.OpenDatabase($@"{Application.StartupPath}\chimera.sqlite");
+      Session.OpenDatabase();
 
       var repo = new GameRepo();
       gameList = repo.GetAllGames();
@@ -116,6 +122,65 @@ namespace Chimera
     {
       lblDescription.MaximumSize = new Size(pnlDescription.Width - 30,0);
       lblDescription.Refresh();
+    }
+
+    private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        Close();
+    }
+
+    private void addFileToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      var fileChooser = new OpenFileDialog {Multiselect = true};
+
+      if (fileChooser.ShowDialog() != DialogResult.OK) return;
+
+      var safeFileNames = fileChooser.FileNames;
+    
+      if (!safeFileNames.Any()) return;
+
+      var helper = new TreatyHelper();
+      var repo = new GameRepo();
+
+      foreach (var game in from fileName in safeFileNames where helper.IsTreatyFile(fileName) select new GameModel(fileName))
+        repo.SaveGame(game);
+    }
+
+    private void scanFolderToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      FolderBrowserDialog dlg = new FolderBrowserDialog();
+
+      if (dlg.ShowDialog() == DialogResult.OK)
+      {
+        var path = dlg.SelectedPath;
+
+        var files = Directory.GetFiles(path);
+
+        var helper = new TreatyHelper();
+        var repo = new GameRepo();
+
+        foreach (var file in files)
+        {
+          if (helper.IsTreatyFile(file))
+          {
+            var game = new GameModel(file);
+            repo.SaveGame(game);
+          }
+        }
+      }
+
+
+    }
+
+    private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      var frm = new Options();
+
+      if (frm.ShowDialog() == DialogResult.OK)
+      {
+        
+      }
+
     }
   }
 
