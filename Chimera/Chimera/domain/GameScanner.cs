@@ -24,5 +24,7 @@ namespace Chimera.domain
       var files = Directory.EnumerateFiles(rootPath, "*.*", SearchOption.AllDirectories);
       return (from file in files where helper.IsTreatyFile(file) select new GameModel(file, rootPath)).ToList();
     }
+
+    
   }
 }

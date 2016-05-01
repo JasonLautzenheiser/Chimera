@@ -32,6 +32,13 @@
       this.lvGames = new System.Windows.Forms.ListView();
       this.pict = new System.Windows.Forms.PictureBox();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+      this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.addFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.scanFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.statusStrip1 = new System.Windows.Forms.StatusStrip();
       this.lblTitle = new System.Windows.Forms.Label();
       this.lblHeadline = new System.Windows.Forms.Label();
@@ -44,6 +51,7 @@
       this.rFormat = new System.Windows.Forms.RadioButton();
       this.btnPlay = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pict)).BeginInit();
+      this.menuStrip1.SuspendLayout();
       this.pnlDescription.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -83,11 +91,69 @@
       // 
       // menuStrip1
       // 
+      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
       this.menuStrip1.Size = new System.Drawing.Size(1038, 24);
       this.menuStrip1.TabIndex = 4;
       this.menuStrip1.Text = "menuStrip1";
+      // 
+      // fileToolStripMenuItem
+      // 
+      this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addFileToolStripMenuItem,
+            this.scanFolderToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem});
+      this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+      this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+      this.fileToolStripMenuItem.Text = "&File";
+      // 
+      // addFileToolStripMenuItem
+      // 
+      this.addFileToolStripMenuItem.Name = "addFileToolStripMenuItem";
+      this.addFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+      this.addFileToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+      this.addFileToolStripMenuItem.Text = "Add File";
+      this.addFileToolStripMenuItem.Click += new System.EventHandler(this.addFileToolStripMenuItem_Click);
+      // 
+      // scanFolderToolStripMenuItem
+      // 
+      this.scanFolderToolStripMenuItem.Name = "scanFolderToolStripMenuItem";
+      this.scanFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+      this.scanFolderToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+      this.scanFolderToolStripMenuItem.Text = "Scan Folder";
+      this.scanFolderToolStripMenuItem.Click += new System.EventHandler(this.scanFolderToolStripMenuItem_Click);
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      this.toolStripSeparator1.Size = new System.Drawing.Size(207, 6);
+      // 
+      // exitToolStripMenuItem
+      // 
+      this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+      this.exitToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+      this.exitToolStripMenuItem.Text = "E&xit";
+      this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+      // 
+      // toolsToolStripMenuItem
+      // 
+      this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem});
+      this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+      this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+      this.toolsToolStripMenuItem.Text = "Tools";
+      // 
+      // optionsToolStripMenuItem
+      // 
+      this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.optionsToolStripMenuItem.Text = "Options...";
+      this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
       // 
       // statusStrip1
       // 
@@ -232,6 +298,8 @@
       this.Name = "MainForm";
       this.Text = "Chimera";
       ((System.ComponentModel.ISupportInitialize)(this.pict)).EndInit();
+      this.menuStrip1.ResumeLayout(false);
+      this.menuStrip1.PerformLayout();
       this.pnlDescription.ResumeLayout(false);
       this.pnlDescription.PerformLayout();
       this.ResumeLayout(false);
@@ -255,6 +323,13 @@
     private System.Windows.Forms.RadioButton rAuthor;
     private System.Windows.Forms.RadioButton rFormat;
     private System.Windows.Forms.Button btnPlay;
+    private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem addFileToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem scanFolderToolStripMenuItem;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
   }
 }
 
